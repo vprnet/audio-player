@@ -35,16 +35,47 @@ div.sgplayer-mobile {
         padding: 5px;
     }
     h3 {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
-        @media (max-width: $phone) {
-            font-size: 14px;
-            line-height: 1.4;
-        }
+        margin: 10px 0;
+        line-height: 1.4;
+    }
+    p {
+        font-size: 12px;
+        color: $gray;
+    }
+    p.byline {
+        font-size: 10px;
+        margin-bottom: 5px;
     }
     background: white;
     div.stories {
         padding: 0 15px 10px;
+    }
+    #top_story {
+        p.byline {
+            font-size: 12px;
+            margin-bottom: 0;
+            @media (max-width: $phone) {
+                margin-top: -2px;
+            }
+        }
+        img {
+            padding-right: 10px;
+            @media (max-width: $phone) {
+                max-width: 75px;
+            }
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 24px;
+            @media (max-width: $phone) {
+                font-size: 18px;
+            }
+        }
+        p {
+            font-size: 12px;
+        }
     }
 }
 
@@ -66,6 +97,9 @@ div.sgplayer-mobile {
         font-size: 12px;
         color: $gray;
     }
+    p.program {
+        margin-bottom: 0;
+    }
     p.question {
         color: $black;
         font-size: 16px;
@@ -80,4 +114,16 @@ div.sgplayer-mobile {
 
 #ad_tiles {
     margin-top: 30px;
+}
+
+table {
+    display: none;
+    font-size: 12px;
+    td {
+        height: 3px;
+        width: 15px;
+    }
+    td.on_air {
+        background: black;
+    }
 }

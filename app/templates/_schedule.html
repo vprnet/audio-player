@@ -1,0 +1,15 @@
+<table>
+{% for row in schedule %}
+    <tr>
+    {% if loop.index < 3 %}
+        {% for column in row %}
+            <th>{{ column }}</th>
+        {% endfor %}
+    {% else %}
+        {% for column in row %}
+            <td {% if column == "TRUE" %}class="on_air"{% endif %}>{% if column != "TRUE" and column != "FALSE" %}{{ column }}{% endif %}</td>
+        {% endfor %}
+    {% endif %}
+    </tr>
+{% endfor %}
+</table>
