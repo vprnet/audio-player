@@ -1,0 +1,43 @@
+body {
+    background: #f0f0f0;
+}
+
+div.tab-content {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+div.tab-pane {
+    padding: 20px;
+    .nav-tabs {
+        li {
+            a:hover {
+                background: lighten($gray, 30%);
+            }
+        }
+    }
+}
+
+div.google_ads {
+    margin-top: 41px;
+}
+
+
+div#regular_player {
+    margin-bottom: 20px;
+    @media (max-width: 605px) {
+        display: none;
+    }
+}
+
+div#mobile_player {
+    width: 100%;
+    height: 500px;
+    @media (min-width: 605px) {
+        display: none;
+    }
+}
+
+div.sgplayer-standard {
+    min-height: 254px;
+}

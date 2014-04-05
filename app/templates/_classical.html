@@ -1,0 +1,14 @@
+<div class="sgplayer-standard">
+{% if classical_player %}
+    <iframe src="http://player.streamguys.com/vpr/sgplayer/player.php" frameBorder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:inherit; height:inherit; border:0;"></iframe>
+</div>
+<div id="playlist_widget">
+    <iframe src="http://composer.nprstations.org/widgets/iframe/searchlist.html?station=518028fee1c810b152ff9766&visible=searchlist" width="100%" height="100%" frameborder="0" seamless></iframe>
+</div>
+{% else %}
+    <iframe src="about:blank" frameBorder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:inherit; height:inherit; border:0;"></iframe>
+</div>
+<div id="playlist_widget">
+    <iframe src="about:blank" width="100%" height="100%" frameborder="0" seamless></iframe>
+</div>
+{% endif %}
