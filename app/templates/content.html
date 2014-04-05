@@ -5,63 +5,30 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <div id="regular_player">
-                <ul class="nav nav-tabs nav-justified" id="player_tabs">
-                {% if classical_player %}
-                    <li id="news_tab"><a class="btn-news" href="#news">News</a></li>
-                    <li id="classical_tab" class="active"><a class="btn-classical" href="#classical">Classical</a></li>
-                    <li id="music_tab"><a class="btn-music" href="#replay">Replay</a></li>
-                {% elif music_player %}
-                    <li id="news_tab"><a class="btn-news" href="#news">News</a></li>
-                    <li id="classical_tab"><a class="btn-classical" href="#classical">Classical</a></li>
-                    <li id="music_tab" class="active"><a class="btn-music" href="#replay">Replay</a></li>
-                {% else %}
-                    <li id="news_tab" class="active"><a class="btn-news" href="#news">News</a></li>
-                    <li id="classical_tab"><a class="btn-classical" href="#classical">Classical</a></li>
-                    <li id="music_tab"><a class="btn-music" href="#replay">Replay</a></li>
-                {% endif %}
-                </ul>
-                <div class="tab-content">
-                {% if classical_player %}
-                    <div class="tab-pane fade" id="news">
-                        {% include "_news.html" %}
-                    </div>
-                    <div class="tab-pane fade in active" id="classical">
-                        {% include "_classical.html" %}
-                    </div>
-                    <div class="tab-pane fade" id="replay">
-                        {% include "_replay.html" %}
-                    </div>
-                {% elif music_player %}
-                    <div class="tab-pane fade" id="news">
-                        {% include "_news.html" %}
-                    </div>
-                    <div class="tab-pane fade" id="classical">
-                        {% include "_classical.html" %}
-                    </div>
-                    <div class="tab-pane fade in active" id="replay">
-                        {% include "_replay.html" %}
-                    </div>
-                {% else %}
-                    <div class="tab-pane fade in active" id="news">
-                        {% include "_news.html" %}
-                    </div>
-                    <div class="tab-pane fade" id="classical">
-                        {% include "_classical.html" %}
-                    </div>
-                    <div class="tab-pane fade" id="replay">
-                        {% include "_replay.html" %}
-                    </div>
-                {% endif %}
-                </div>
+        <div class="col-sm-6">
+            <h2 class="visible-xs" id="mobile_title">Audio Player</h2>
+            <div class="sgplayer-mobile">
+                <iframe src="http://player.streamguys.com/vprmobile/sgplayer/mobile.php" frameBorder="0"
+                scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+                style="width:inherit; height:inherit; border:0;"></iframe>
             </div>
-            <div id="mobile_player" class="sgplayer-mobile">
-                <iframe src="about:blank" frameBorder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:inherit; height:inherit; border:0;"></iframe>
+            <div id="more_info">
+                <h2>More Info</h2>
+                <p class="question">Listening to VPR Classical and looking for that piece that was just played?</p>
+                <p>Check the <a href="http://www.vpr.net/music/vpr_classical_playlist/index.php">Classical Playlist Calendar</a></p>
+                <p class="question">What's AAC+?</p>
+                <p>AAC+ is an audio format that "acheives better sound quality than MP3 at similar bit rates" (<a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">wikipedia</a>). While the quality is higher, only up-to-date versions of Safari and Firefox are able to play this format.</p>
             </div>
         </div>
-        <div class="col-md-4 google_ads">
+        <div class="col-sm-6">
+            {% include "_river.html" %}
+        </div>
+    </div>
+    <div id="ad_tiles" class="row">
+        <div class="col-sm-6">
             {% include "_underwriter.html" %}
+        </div>
+        <div class="col-sm-6">
             {% include "_marcomm.html" %}
         </div>
     </div>

@@ -75,11 +75,7 @@ footer {
     }
 }
 
-<<<<<<< HEAD
 #underwriter, #marcomm {
-=======
-#underwriter {
->>>>>>> 1cbdc878c467955c752f87b008e4403eaa9abd87
     max-width: 300px;
     margin: 0 auto;
     min-height: 300px;
@@ -96,7 +92,7 @@ footer {
             @include lt_link($gray, white, 2px);
         }
     }
-    @media (max-width: 330px) {
+    @media (max-width: 325px) {
         margin-left: -5px;
     }
 }

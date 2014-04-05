@@ -3540,7 +3540,7 @@ footer {
         text-decoration: none;
         border-color: #999999;
         color: #75787b; }
-  @media (max-width: 330px) {
+  @media (max-width: 325px) {
     #underwriter, #marcomm {
       margin-left: -5px; } }
 
@@ -3564,11 +3564,6 @@ footer {
 
   #body {
     margin-left: 5px; } }
-div.sgplayer-standard {
-  width: 526px;
-  height: 254px;
-  margin: 0 auto; }
-
 #vpr-logo {
   padding: 0;
   background-size: 100%;
@@ -5777,47 +5772,72 @@ div.sgplayer-standard {
   content: "\f30c"; }
 
 body {
-  background: #f0f0f0; }
+  background: #f9f9f9; }
 
-div.tab-content {
+#mobile_title {
+  margin-top: 5px;
+  background: #e3624f;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 22px;
+  padding: 5px; }
+
+div.sgplayer-mobile {
+  width: 100%; }
+  @media (max-width: 350px) {
+    div.sgplayer-mobile {
+      height: 180px;
+      margin-bottom: 20px; } }
+  div.sgplayer-mobile iframe {
+    display: block;
+    margin: 0 auto; }
+
+#river {
+  background: white; }
+  #river h2 {
+    margin-top: 5px;
+    background: #e3624f;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    padding: 5px; }
+  #river h3 {
+    font-size: 16px;
+    font-weight: 500; }
+    @media (max-width: 500px) {
+      #river h3 {
+        font-size: 14px;
+        line-height: 1.4; } }
+  #river div.stories {
+    padding: 0 15px 10px; }
+
+#more_info {
   background: white;
-  border: 1px solid #ddd;
-  border-top: 0; }
+  padding-bottom: 10px;
+  margin-bottom: 25px; }
+  #more_info h2 {
+    margin-top: 0;
+    background: #65a3cf;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    padding: 5px; }
+  #more_info p {
+    padding: 0 10px;
+    font-size: 12px;
+    color: #75787b; }
+  #more_info p.question {
+    color: #3f4444;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    line-height: 1.2em; }
+    @media (max-width: 500px) {
+      #more_info p.question {
+        font-size: 14px; } }
 
-div.tab-pane {
-  padding: 20px; }
-  div.tab-pane .nav-tabs li a:hover {
-    background: #c3c5c6; }
-
-div.google_ads {
-  margin-top: 41px; }
-
-div#regular_player {
-  margin-bottom: 20px; }
-  @media (max-width: 605px) {
-    div#regular_player {
-      display: none; } }
-
-div#mobile_player {
-  width: 100%;
-  height: 500px; }
-  @media (min-width: 605px) {
-    div#mobile_player {
-      display: none; } }
-
-div.sgplayer-standard {
-  min-height: 254px; }
-
-#news h2 {
-  font-size: 14px;
-  color: #8f9294; }
-#news h3 {
-  font-size: 16px;
-  color: #75787b;
-  margin: 15px 0; }
-
-#playlist_widget {
-  height: 500px;
-  width: 546px;
-  margin: 20px auto 10px;
-  padding-left: 3px; }
+#ad_tiles {
+  margin-top: 30px; }
