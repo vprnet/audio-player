@@ -5,25 +5,29 @@
         <div id="top_story" class="clearfix">
             <img class="hidden-xs pull-left" src="{{ url_for('static', filename=billboard.image) }}">
 
-            <h3><a href="{{ billboard.link }}" alt="{{ billboard.title }}">{{ billboard.title }}</a></h3>
+            <h3><a href="{{ billboard.link }}" alt="{{ billboard.title }}" target="_blank">{{ billboard.title }}</a></h3>
             <img class="visible-xs pull-left" src="{{ url_for('static', filename=billboard.image) }}">
             {% for par in billboard.text %}
                 <p>{{ par }}</p>
             {% endfor %}
-            <ul id="billboard_share">
-            {% if billboard.twitter %}
-                <li><a href="http://twitter.com/{{ billboard.twitter }}" target="_blank"><span class="icon ion-social-twitter"></span></a></li>
-            {% endif %}
-            {% if billboard.facebook %}
-                <li><a href="http://www.facebook.com/{{ billboard.facebook }}" target="_blank"><span class="icon ion-social-facebook"></span></a></li>
-            {% endif %}
-            {% if billboard.email %}
-                <li><a href="mailto:{{ billboard.email }}" target="_blank"><span class="icon ion-email"></span></a></li>
-            {% endif %}
-            {% if billboard.phone %}
-                <li><a href="tel:{{ billboard.phone|replace('-', '') }}" target="_blank"><span class="icon ion-ios7-telephone"></span></a></li>
-            {% endif %}
-            </ul>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul id="billboard_share">
+                    {% if billboard.twitter %}
+                        <li><a href="http://twitter.com/{{ billboard.twitter }}" target="_blank"><span class="icon ion-social-twitter"></span></a></li>
+                    {% endif %}
+                    {% if billboard.facebook %}
+                        <li><a href="http://www.facebook.com/{{ billboard.facebook }}" target="_blank"><span class="icon ion-social-facebook"></span></a></li>
+                    {% endif %}
+                    {% if billboard.email %}
+                        <li><a href="mailto:{{ billboard.email }}@vpr.net" target="_blank"><span class="icon ion-email"></span></a></li>
+                    {% endif %}
+                    {% if billboard.phone %}
+                        <li><a href="tel:{{ billboard.phone|replace('-', '') }}" target="_blank"><span class="icon ion-ios7-telephone"></span><span class="hidden-xs phone_no">{{ billboard.phone }}</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

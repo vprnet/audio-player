@@ -18,29 +18,25 @@
                 <iframe src="http://player.streamguys.com/vprmobile/sgplayer/mobile.php" frameBorder="0"
                 scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
                 style="width:inherit; height:inherit; border:0;"></iframe>
+                <p id="player_feedback">Thoughts on the new player? <a href="http://www.vpr.net/inside_vpr/contact_us/?subject=New+Audio+Player">Let us know</a>!</p>
+            </div>
+            <div class="visible-xs">
+                {% include "_billboard.html" %}
+            </div>
+            {% include "_streams.html" %}
+            <div class="hidden-xs">
+                {% include "_more_info.html" %}
             </div>
         </div>
-        <div class="col-sm-6">
-            {% include "_billboard.html" %}
-            {% include "_streams.html" %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            {% include "_more_info.html" %}
-        </div>
-    </div>
-    <div id="ad_tiles" class="row">
-        <div class="col-sm-6">
+        <div id="right_panel" class="col-sm-6">
+            <div class="hidden-xs">
+                {% include "_billboard.html" %}
+            </div>
             {% include "_underwriter.html" %}
-        </div>
-        <div class="col-sm-6">
+            <div class="visible-xs">
+                {% include "_more_info.html" %}
+            </div>
             {% include "_marcomm.html" %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            {% include "_feedback.html" %}
         </div>
     </div>
 </div>

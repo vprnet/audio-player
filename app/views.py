@@ -13,6 +13,7 @@ def index():
     schedule = replay_schedule()
     callout = get_callout(sheet_id)
     billboard = get_billboard(sheet_id)
+    stream_name = "My Place"
 
     social = {
         'title': "",
@@ -30,4 +31,5 @@ def index():
         schedule=schedule,
         callout=callout,
         billboard=billboard,
+        stream_name=stream_name,
         page_url=page_url)

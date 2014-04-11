@@ -53,7 +53,6 @@ def get_billboard(sheet_key):
         phone = billboard[0].get('phone', False)
         facebook = billboard[0].get('facebook', False)
         email = billboard[0].get('email', False)
-        print billboard[0]
         if title:
             story['title'] = title
         if text:
@@ -67,7 +66,7 @@ def get_billboard(sheet_key):
         if facebook:
             story['facebook'] = facebook
     else:
-        story = {'title': 'On Vermont Edition: Attorney General Bill Sorrell\n', 'text': ["We'll talk with Vermont's Attorney General about a number of key issues including GMO labeling legislation and the Vermont Yankee decommissioning plans and fund."], 'image': u'img/thumbnails/AP-marijuana.jpg', 'phone': '1-800-639-2211', 'link': u'http://digital.vpr.net/post/bill-would-expand-vt-medical-marijuana-dispensaries', 'date': u'April 08, 2014', 'facebook': 'vermontedition', 'audio': {'duration': u'2753', 'mp3': u'http://cpa.ds.npr.org/vpr/audio/2014/04/vpr-vermont-edition-20140408.mp3'}, 'twitter': 'vermontedition', 'email': 'vermontedition@vpr.net', 'landscape': True}
+        story = False
     return story
 
 

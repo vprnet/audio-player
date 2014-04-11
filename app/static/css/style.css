@@ -5772,11 +5772,11 @@ footer {
   content: "\f30c"; }
 
 body {
-  background: #f9f9f9; }
+  background: #eaebeb; }
 
 #mobile_title {
   margin-top: 5px;
-  background: #e3624f;
+  background: #e04e39;
   color: white;
   text-align: center;
   font-weight: 400;
@@ -5784,31 +5784,35 @@ body {
   padding: 5px; }
 
 #callout {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 500;
   color: #75787b; }
   #callout a {
-    color: #75787b; }
-
-#feedback {
-  background: white;
-  margin: 15px 0 25px; }
-  #feedback h2 {
-    margin-top: 5px;
-    background: #e3624f;
-    color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    padding: 5px; }
-  #feedback p {
-    padding: 0 15px 10px; }
+    color: #75787b;
+    border-color: #c3c5c6; }
+    #callout a:hover {
+      border-color: #a9abad; }
+  @media (min-width: 768px) {
+    #callout {
+      text-align: center;
+      margin-bottom: 20px; } }
+  #callout #callout_message {
+    background: blue; }
 
 div.sgplayer-mobile {
   width: 100%; }
   @media (max-width: 350px) {
     div.sgplayer-mobile {
-      height: 180px;
-      margin-bottom: 20px; } }
+      height: 200px;
+      margin-bottom: 15px; } }
+  div.sgplayer-mobile p#player_feedback {
+    margin-top: -25px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #75787b; }
+    div.sgplayer-mobile p#player_feedback a {
+      color: #75787b; }
   div.sgplayer-mobile iframe {
     display: block;
     margin: 0 auto; }
@@ -5817,33 +5821,38 @@ div.sgplayer-mobile {
   background: white; }
   #billboard h2 {
     margin-top: 5px;
-    background: #e3624f;
+    background: #e04e39;
     color: white;
     text-align: center;
     font-weight: 400;
     font-size: 22px;
     padding: 5px; }
   #billboard h3 {
-    font-size: 18px;
     font-weight: 500;
-    margin: 10px 0;
     line-height: 1.4; }
   #billboard p {
     font-size: 12px;
-    color: #75787b; }
+    color: #75787b;
+    padding-top: 10px; }
+    @media (max-width: 768px) {
+      #billboard p {
+        padding-top: 0; } }
   #billboard p.byline {
     font-size: 10px;
     margin-bottom: 5px; }
   #billboard div.stories {
     padding: 0 15px 10px; }
   #billboard #billboard_share {
-    max-width: 260px;
     padding: 0;
-    margin: 10px auto; }
+    margin: 10px auto;
+    max-width: 310px; }
     #billboard #billboard_share li {
       list-style-type: none;
       display: inline;
-      padding: 0 20px; }
+      padding: 0 15px; }
+      @media (max-width: 768px) {
+        #billboard #billboard_share li {
+          padding: 0 20px; } }
     #billboard #billboard_share a {
       border-bottom: 0; }
       #billboard #billboard_share a:hover {
@@ -5854,6 +5863,17 @@ div.sgplayer-mobile {
       font-size: 28px;
       position: relative;
       top: 2px; }
+    #billboard #billboard_share span.phone_no {
+      font-size: 16px;
+      position: relative;
+      top: -3px;
+      padding-left: 5px; }
+    @media (min-width: 768px) {
+      #billboard #billboard_share span.ion-ios7-telephone {
+        display: none; } }
+    @media (max-width: 768px) {
+      #billboard #billboard_share {
+        max-width: 260px; } }
   #billboard #top_story img {
     padding-right: 10px; }
     @media (max-width: 500px) {
@@ -5861,10 +5881,10 @@ div.sgplayer-mobile {
         max-width: 75px; } }
   #billboard #top_story h3 {
     margin-top: 0;
-    font-size: 24px; }
+    font-size: 18px; }
     @media (max-width: 500px) {
       #billboard #top_story h3 {
-        font-size: 18px; } }
+        font-size: 16px; } }
   #billboard #top_story p {
     font-size: 12px; }
 
@@ -5875,7 +5895,7 @@ div.sgplayer-mobile {
   margin-top: 15px; }
   #streams h2 {
     margin-top: 0;
-    background: #e3624f;
+    background: #e04e39;
     color: white;
     text-align: center;
     font-weight: 400;
@@ -5898,7 +5918,7 @@ div.sgplayer-mobile {
   margin-bottom: 25px; }
   #more_info h2 {
     margin-top: 0;
-    background: #65a3cf;
+    background: #307fe2;
     color: white;
     text-align: center;
     font-weight: 400;
@@ -5919,6 +5939,13 @@ div.sgplayer-mobile {
     @media (max-width: 500px) {
       #more_info p.question {
         font-size: 14px; } }
+    #more_info p.question:last-child {
+      margin-top: 10px; }
 
 #ad_tiles {
   margin-top: 30px; }
+
+#right_panel div.below_bb {
+  margin-top: 20px; }
+#right_panel div.no_bb {
+  margin-top: 5px; }
