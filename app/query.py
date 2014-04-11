@@ -6,10 +6,69 @@ import ImageOps
 import urllib
 import os
 import csv
-from bs4 import BeautifulSoup as Soup
+import markdown
+from google_spreadsheet.api import SpreadsheetAPI
 from datetime import datetime
 from cStringIO import StringIO
-from config import NPR_API_KEY, ABSOLUTE_PATH
+from config import NPR_API_KEY, ABSOLUTE_PATH, GOOGLE_SPREADSHEET
+
+
+def list_sheets():
+    """The API sheet_key is not the same as the key in the URL. This function
+    just prints out all sheet keys"""
+    api = SpreadsheetAPI(GOOGLE_SPREADSHEET['USER'],
+        GOOGLE_SPREADSHEET['PASSWORD'],
+        GOOGLE_SPREADSHEET['SOURCE'])
+    spreadsheets = api.list_spreadsheets()
+    for sheet in spreadsheets:
+        print sheet
+
+
+def get_google_sheet(sheet_key=False, sheet_id='od6'):
+    """Uses python_google_spreadsheet API to interact with sheet"""
+    api = SpreadsheetAPI(GOOGLE_SPREADSHEET['USER'],
+        GOOGLE_SPREADSHEET['PASSWORD'],
+        GOOGLE_SPREADSHEET['SOURCE'])
+    sheet = api.get_worksheet(sheet_key, sheet_id)
+    sheet_object = sheet.get_rows()
+    return sheet_object
+
+
+def get_callout(sheet_key):
+    callout = get_google_sheet(sheet_key, sheet_id='od4')
+    md = callout[0]['text']
+    html = markdown.markdown(md)
+    return html
+
+
+def get_billboard(sheet_key):
+    billboard = get_google_sheet(sheet_key, sheet_id='od5')
+    if len(billboard):
+        story_id = billboard[0]['storyid']
+        story_id = '300447312'
+        story = api_feed([story_id], thumbnail=True, sidebar=True)[0]
+        title = billboard[0].get('title', False)
+        text = billboard[0].get('text', False)
+        twitter = billboard[0].get('twitter', False)
+        phone = billboard[0].get('phone', False)
+        facebook = billboard[0].get('facebook', False)
+        email = billboard[0].get('email', False)
+        print billboard[0]
+        if title:
+            story['title'] = title
+        if text:
+            story['text'] = [text]
+        if twitter:
+            story['twitter'] = twitter
+        if email:
+            story['email'] = twitter
+        if phone:
+            story['phone'] = phone
+        if facebook:
+            story['facebook'] = facebook
+    else:
+        story = {'title': 'On Vermont Edition: Attorney General Bill Sorrell\n', 'text': ["We'll talk with Vermont's Attorney General about a number of key issues including GMO labeling legislation and the Vermont Yankee decommissioning plans and fund."], 'image': u'img/thumbnails/AP-marijuana.jpg', 'phone': '1-800-639-2211', 'link': u'http://digital.vpr.net/post/bill-would-expand-vt-medical-marijuana-dispensaries', 'date': u'April 08, 2014', 'facebook': 'vermontedition', 'audio': {'duration': u'2753', 'mp3': u'http://cpa.ds.npr.org/vpr/audio/2014/04/vpr-vermont-edition-20140408.mp3'}, 'twitter': 'vermontedition', 'email': 'vermontedition@vpr.net', 'landscape': True}
+    return story
 
 
 def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
@@ -23,12 +82,12 @@ def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
         date = convert_date(story['storyDate']['$text'])
         title = story['title']['$text'].strip()
 
-        byline = {}
-        try:
-            byline['name'] = story['byline'][0]['name']['$text']
-            byline['url'] = story['byline'][0]['link'][0]['$text']
-        except KeyError:
-            byline = False
+        #byline = {}
+        #try:
+        #    byline['name'] = story['byline'][0]['name']['$text']
+        #    byline['url'] = story['byline'][0]['link'][0]['$text']
+        #except KeyError:
+        #    byline = False
 
         try:  # if there's an image, determine orientation and define boundary
             story_image = story['image'][0]['crop'][0]
@@ -84,7 +143,7 @@ def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
             'link': link,
             'image': image,
             'text': text,
-            'byline': byline,
+            #'byline': byline,
             'audio': audio,
             'landscape': landscape
         })
@@ -110,23 +169,6 @@ def query_api(tag, numResults=10):
     stories = j['list']['story']
 
     return stories
-
-
-def reporter_image(url):
-    """Takes reporter URL from byline and returns URL to reporter's image"""
-
-    r = requests.get(url)
-    page = r.text
-    soup = Soup(page)
-    person_card = soup.find_all(id="person-card")[0]
-    try:
-        image = person_card.find_all('img')[0].get('src')
-        thumbnail = generate_thumbnail(image, size=(80, 80))
-    except IndexError:
-        image = False
-        thumbnail = False
-
-    return thumbnail
 
 
 def generate_thumbnail(image_url, preserve_ratio=False, size=(220, 165)):
@@ -165,3 +207,5 @@ def replay_schedule():
     f = csv.reader(open('app/data/replay_schedule.csv', 'rU'))
     schedule = [l for l in f]
     return schedule
+
+get_billboard('tzE2PsqJoWRpENlMr-ZlS8A')

@@ -5,6 +5,13 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <div class="col-xs-12">
+            {% if callout %}
+                {% include "_callout.html" %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
         <div class="col-sm-6">
             <h2 class="visible-xs" id="mobile_title">Audio Player</h2>
             <div class="sgplayer-mobile">
@@ -12,24 +19,15 @@
                 scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
                 style="width:inherit; height:inherit; border:0;"></iframe>
             </div>
-            <div id="more_info">
-                <h2>More Info</h2>
-                <p class="question">Replay Schedule</p>
-                <p class="program">This week's <a href="http://digital.vpr.net/programs/my-place">My Place</a> starts at:</p>
-                <p>12 AM, 3 AM, 6 AM, 9 AM, 12 PM, 3 PM, 6 PM and 9 PM.</p>
-                <p class="program">Last week's <a href="http://digital.vpr.net/programs/my-place">My Place</a> starts at:
-                <p>1 AM, 4 AM, 7 AM, 10 AM, 1 PM, 4 PM, 7 PM and 10 PM.</p>
-                <p class="program">PRX Remix starts at:
-                <p>2 AM, 5 AM, 8 AM, 11 AM, 2 PM, 5 PM, 8 PM and 11 PM</p>
-                {% include "_schedule.html" %}
-                <p class="question">Listening to VPR Classical and looking for that piece that was just played?</p>
-                <p>Check the <a href="http://www.vpr.net/music/vpr_classical_playlist/index.php">Classical Playlist Calendar</a></p>
-                <p class="question">What's AAC+?</p>
-                <p>AAC+ is an audio format that "acheives better sound quality than MP3 at similar bit rates" (<a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">wikipedia</a>). While the quality is higher, only up-to-date versions of Safari and Firefox are able to play this format.</p>
-            </div>
         </div>
         <div class="col-sm-6">
-            {% include "_river.html" %}
+            {% include "_billboard.html" %}
+            {% include "_streams.html" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {% include "_more_info.html" %}
         </div>
     </div>
     <div id="ad_tiles" class="row">
@@ -38,6 +36,11 @@
         </div>
         <div class="col-sm-6">
             {% include "_marcomm.html" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {% include "_feedback.html" %}
         </div>
     </div>
 </div>
