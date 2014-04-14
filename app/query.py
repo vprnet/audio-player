@@ -37,7 +37,10 @@ def get_google_sheet(sheet_key=False, sheet_id='od6'):
 def get_callout(sheet_key):
     callout = get_google_sheet(sheet_key, sheet_id='od4')
     md = callout[0]['text']
-    html = markdown.markdown(md)
+    if md:
+        html = markdown.markdown(md)
+    else:
+        html = False
     return html
 
 

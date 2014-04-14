@@ -40,6 +40,9 @@ div.sgplayer-mobile {
     }
     p#player_feedback {
         margin-top: -25px;
+        @media (max-width: $phone) {
+            margin-top: -15px;
+        }
         margin-bottom: 20px;
         text-align: center;
         font-size: 12px;
@@ -148,7 +151,7 @@ div.sgplayer-mobile {
 #streams {
     background: white;
     padding-bottom: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     margin-top: 15px;
     h2 {
         margin-top: 0;
@@ -198,6 +201,7 @@ div.sgplayer-mobile {
         color: $black;
         font-size: 16px;
         font-weight: 500;
+        margin-top: 15px;
         margin-bottom: 5px;
         line-height: 1.2em;
         @media (max-width: $phone) {

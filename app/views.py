@@ -16,11 +16,11 @@ def index():
     stream_name = "My Place"
 
     social = {
-        'title': "",
+        'title': "VPR Audio Player",
         'subtitle': "",
-        'img': "",
-        'description': "",
-        'twitter_text': "",
+        'img': "static/img/logo/vpr-logo-share.jpg",
+        'description': "Listen to the live streams of VPR News, VPR Classical, the BBC, Jazz24 and My Place.",
+        'twitter_text': "News, Classical, the BBC and more. The VPR Audio Player:",
         'twitter_hashtag': ""
     }
 

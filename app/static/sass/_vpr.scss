@@ -43,6 +43,9 @@ html, body {
     }
     a.navbar-brand {
         padding: 10px 15px 5px;
+        @media (max-width: $phone) {
+            padding-right: 0px;
+        }
     }
     a {
         border: 0;
@@ -105,6 +108,9 @@ footer {
         float: right;
         margin-top: 2px;
         padding: 5px 0 5px 10px;
+        @media (max-width: $phone) {
+            padding-left: 5px;
+        }
         div {
             background-size: 100%;
         }
@@ -113,6 +119,19 @@ footer {
                 margin-right: 15px;
             }
         }
+    }
+}
+
+#donate_btn {
+    display: inline;
+    float: right;
+    margin-right: 20px;
+    @media (max-width: $phone) {
+        margin-right: 10px;
+    }
+    margin-top: 7px;
+    button {
+        padding: 4px 12px;
     }
 }
 

@@ -3491,6 +3491,9 @@ html, body {
     float: none; }
   .navbar a.navbar-brand {
     padding: 10px 15px 5px; }
+    @media (max-width: 500px) {
+      .navbar a.navbar-brand {
+        padding-right: 0px; } }
   .navbar a {
     border: 0; }
   .navbar #navbar_title {
@@ -3552,11 +3555,25 @@ footer {
     float: right;
     margin-top: 2px;
     padding: 5px 0 5px 10px; }
+    @media (max-width: 500px) {
+      #social-logos a {
+        padding-left: 5px; } }
     #social-logos a div {
       background-size: 100%; }
     @media (max-width: 768px) {
       #social-logos a:first-child {
         margin-right: 15px; } }
+
+#donate_btn {
+  display: inline;
+  float: right;
+  margin-right: 20px;
+  margin-top: 7px; }
+  @media (max-width: 500px) {
+    #donate_btn {
+      margin-right: 10px; } }
+  #donate_btn button {
+    padding: 4px 12px; }
 
 @media (max-width: 768px) {
   footer {
@@ -5811,6 +5828,9 @@ div.sgplayer-mobile {
     text-align: center;
     font-size: 12px;
     color: #75787b; }
+    @media (max-width: 500px) {
+      div.sgplayer-mobile p#player_feedback {
+        margin-top: -15px; } }
     div.sgplayer-mobile p#player_feedback a {
       color: #75787b; }
   div.sgplayer-mobile iframe {
@@ -5891,7 +5911,7 @@ div.sgplayer-mobile {
 #streams {
   background: white;
   padding-bottom: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   margin-top: 15px; }
   #streams h2 {
     margin-top: 0;
@@ -5934,6 +5954,7 @@ div.sgplayer-mobile {
     color: #3f4444;
     font-size: 16px;
     font-weight: 500;
+    margin-top: 15px;
     margin-bottom: 5px;
     line-height: 1.2em; }
     @media (max-width: 500px) {
