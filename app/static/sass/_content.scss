@@ -225,3 +225,23 @@ div.sgplayer-mobile {
         margin-top: 5px;
     }
 }
+
+p.prior_player {
+    margin: 25px 0 15px;
+    font-weight: 500;
+    color: $gray;
+    padding-left: 10px;
+    @media (max-width: $tablet) {
+        padding-left: 0px;
+        text-align: center;
+        a {
+            border-color: lighten($gray, 30%);
+            &:hover {
+                border-color: lighten($gray, 20%);
+            }
+        }
+    }
+    @media (max-width: $phone) {
+        font-size: 12px;
+    }
+}

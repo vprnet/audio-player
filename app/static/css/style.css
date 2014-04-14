@@ -5970,3 +5970,20 @@ div.sgplayer-mobile {
   margin-top: 20px; }
 #right_panel div.no_bb {
   margin-top: 5px; }
+
+p.prior_player {
+  margin: 25px 0 15px;
+  font-weight: 500;
+  color: #75787b;
+  padding-left: 10px; }
+  @media (max-width: 768px) {
+    p.prior_player {
+      padding-left: 0px;
+      text-align: center; }
+      p.prior_player a {
+        border-color: #c3c5c6; }
+        p.prior_player a:hover {
+          border-color: #a9abad; } }
+  @media (max-width: 500px) {
+    p.prior_player {
+      font-size: 12px; } }
