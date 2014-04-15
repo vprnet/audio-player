@@ -5959,7 +5959,7 @@ div.sgplayer-mobile {
     font-weight: 500;
     margin-top: 15px;
     margin-bottom: 5px;
-    line-height: 1.2em; }
+    line-height: 1.3em; }
     @media (max-width: 500px) {
       #more_info p.question {
         font-size: 14px; } }
@@ -5968,7 +5968,10 @@ div.sgplayer-mobile {
   #more_info span.playing {
     font-weight: 600; }
   #more_info #full_schedule {
-    margin-top: 10px; }
+    margin-top: 10px;
+    font-weight: 600; }
+    #more_info #full_schedule a {
+      color: #75787b; }
 
 #ad_tiles {
   margin-top: 30px; }

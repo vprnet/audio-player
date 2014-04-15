@@ -203,7 +203,7 @@ div.sgplayer-mobile {
         font-weight: 500;
         margin-top: 15px;
         margin-bottom: 5px;
-        line-height: 1.2em;
+        line-height: 1.3em;
         @media (max-width: $phone) {
             font-size: 14px;
         }
@@ -216,6 +216,10 @@ div.sgplayer-mobile {
     }
     #full_schedule {
         margin-top: 10px;
+        font-weight: 600;
+        a {
+            color: $gray;
+        }
     }
 }
 
