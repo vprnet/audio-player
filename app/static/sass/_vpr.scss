@@ -130,7 +130,11 @@ footer {
         margin-right: 10px;
     }
     margin-top: 7px;
-    button {
+    button.btn-primary {
+        background: $blue;
+        &:hover {
+            background: darken($blue, 10%);
+        }
         padding: 4px 12px;
     }
 }

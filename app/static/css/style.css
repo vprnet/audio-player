@@ -3572,8 +3572,11 @@ footer {
   @media (max-width: 500px) {
     #donate_btn {
       margin-right: 10px; } }
-  #donate_btn button {
+  #donate_btn button.btn-primary {
+    background: #307fe2;
     padding: 4px 12px; }
+    #donate_btn button.btn-primary:hover {
+      background: #1b66c4; }
 
 @media (max-width: 768px) {
   footer {
@@ -5986,4 +5989,5 @@ p.prior_player {
           border-color: #a9abad; } }
   @media (max-width: 500px) {
     p.prior_player {
-      font-size: 12px; } }
+      font-size: 12px;
+      text-align: left; } }
