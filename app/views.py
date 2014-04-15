@@ -1,7 +1,7 @@
 from index import app
 from flask import render_template, request
 from config import BASE_URL
-from query import api_feed, get_callout, get_billboard
+from query import api_feed, get_callout, get_billboard, replay_schedule
 
 
 @app.route('/')
@@ -12,6 +12,7 @@ def index():
     stories = api_feed([299364082, 299368018, 299363915], numResults=3, thumbnail=True, sidebar=True)
     callout = get_callout(sheet_id)
     billboard = get_billboard(sheet_id)
+    on_now, on_next = replay_schedule()
     stream_name = "My Place"
 
     social = {
@@ -30,4 +31,6 @@ def index():
         callout=callout,
         billboard=billboard,
         stream_name=stream_name,
+        on_now=on_now,
+        on_next=on_next,
         page_url=page_url)

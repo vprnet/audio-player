@@ -1,12 +1,9 @@
 <div id="more_info">
     <h2>More Info</h2>
     <p class="question">Check out the <a href="http://www.vpr.net/music/vpr_classical_playlist/index.php" target="_blank">Classical Playlist Calendar</a></p>
-    <p class="question">{{ stream_name }} Schedule</p>
-    <p class="program">This week's <a href="http://digital.vpr.net/programs/my-place" target="_blank">My Place</a> starts at:</p>
-    <p>12 AM, 3 AM, 6 AM, 9 AM, 12 PM, 3 PM, 6 PM and 9 PM.</p>
-    <p class="program">Last week's <a href="http://digital.vpr.net/programs/my-place" target="_blank">My Place</a> starts at:
-    <p>1 AM, 4 AM, 7 AM, 10 AM, 1 PM, 4 PM, 7 PM and 10 PM.</p>
-    <p class="program">PRX Remix starts at:
-    <p>2 AM, 5 AM, 8 AM, 11 AM, 2 PM, 5 PM, 8 PM and 11 PM</p>
+    <p class="question">On the {{ stream_name }} stream:</p>
+    <p class="program"><span class="playing">On Now:</span> {{ on_now }}</p>
+    <p class="program"><span class="playing">Up Next:</span> {{ on_next }}</p>
+    <p id="full_schedule"><a href="http://www.vpr.net/music-player/">Full {{ stream_name }} schedule</a></p>
     <p class="question"><a href="http://digital.vpr.net/online-streams" target="_blank">Wondering what AAC+ or 64k means?</a></p>
 </div>

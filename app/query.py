@@ -5,8 +5,8 @@ import Image
 import ImageOps
 import urllib
 import os
-import csv
 import markdown
+import xml.etree.ElementTree as ET
 from google_spreadsheet.api import SpreadsheetAPI
 from datetime import datetime
 from cStringIO import StringIO
@@ -206,8 +206,12 @@ def convert_date(timestamp):
 
 
 def replay_schedule():
-    f = csv.reader(open('app/data/replay_schedule.csv', 'rU'))
-    schedule = [l for l in f]
-    return schedule
+    r = requests.get('http://www.vpr.net/xml/vpr-mix-stream/vprmix.xml')
+    xml = r.text
+    root = ET.fromstring(xml)
+    index_list = [child for child in root if child.tag == 'PLAY']
+    on_now = index_list[0][0].text
+    on_next = index_list[-1][0].text
+    return on_now, on_next
 
-get_billboard('tzE2PsqJoWRpENlMr-ZlS8A')
+replay_schedule()

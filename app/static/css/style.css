@@ -5965,6 +5965,10 @@ div.sgplayer-mobile {
         font-size: 14px; } }
     #more_info p.question:last-child {
       margin-top: 10px; }
+  #more_info span.playing {
+    font-weight: 600; }
+  #more_info #full_schedule {
+    margin-top: 10px; }
 
 #ad_tiles {
   margin-top: 30px; }
