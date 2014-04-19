@@ -2,15 +2,6 @@ body {
     background: lighten($gray, 45%);
 }
 
-#mobile_title {
-    margin-top: 5px;
-    background: lighten($red, 0%);
-    color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    padding: 5px;
-}
 
 #callout {
     font-size: 14px;
@@ -32,17 +23,29 @@ body {
     }
 }
 
-div.sgplayer-mobile {
+div#player {
     width: 100%;
-    @media (max-width: 350px) {
-        height: 200px;
-        margin-bottom: 15px;
+    #mobile_title {
+        margin: 5px 0;
+        background: lighten($red, 0%);
+        color: white;
+        text-align: center;
+        font-weight: 400;
+        font-size: 22px;
+        padding: 5px;
     }
-    p#player_feedback {
-        margin-top: -25px;
+    p#recommended {
+        font-size: 12px;
+        text-align: center;
+        color: $gray;
+        margin: 0;
+        padding: 0 10px;
+        margin-top: -30px;
         @media (max-width: $phone) {
             margin-top: -15px;
         }
+    }
+    p#player_feedback {
         margin-bottom: 20px;
         text-align: center;
         font-size: 12px;
@@ -51,9 +54,19 @@ div.sgplayer-mobile {
             color: $gray;
         }
     }
-    iframe {
-        display: block;
-        margin: 0 auto;
+    #recommended_format {
+        font-weight: 600;
+    }
+    div.sgplayer-mobile {
+        width: 100%;
+        @media (max-width: 350px) {
+            height: 200px;
+            margin-bottom: 15px;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
     }
 }
 

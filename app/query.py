@@ -210,8 +210,10 @@ def replay_schedule():
     xml = r.text
     root = ET.fromstring(xml)
     index_list = [child for child in root if child.tag == 'PLAY']
-    on_now = index_list[0][0].text
-    on_next = index_list[-1][0].text
+    on_now = {'title': index_list[0][0].text,
+        'artist': index_list[0][1].text}
+    on_next = {'title': index_list[-1][0].text,
+        'artist': index_list[-1][1].text}
     return on_now, on_next
 
 replay_schedule()

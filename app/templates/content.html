@@ -13,17 +13,10 @@
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <h2 class="visible-xs" id="mobile_title">Audio Player</h2>
-            <div class="sgplayer-mobile">
-                <iframe src="http://player.streamguys.com/vprmobile/sgplayer/mobile.php" frameBorder="0"
-                scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
-                style="width:inherit; height:inherit; border:0;"></iframe>
-                <p id="player_feedback"><a href="http://www.vpr.net/inside_vpr/contact_us/?subject=New+Audio+Player">Send us your feedback</a> | <a href="http://www.vpr.net/audio-player/">Use the old player</a></p>
-            </div>
+            {% include "_player.html" %}
             <div class="visible-xs">
                 {% include "_billboard.html" %}
             </div>
-            {% include "_streams.html" %}
             <div class="hidden-xs">
                 {% include "_more_info.html" %}
             </div>
