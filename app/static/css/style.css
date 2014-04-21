@@ -5805,7 +5805,6 @@ body {
       border-color: #a9abad; }
   @media (min-width: 768px) {
     #callout {
-      text-align: center;
       margin-bottom: 20px; } }
   #callout #callout_message {
     background: blue; }
