@@ -23,7 +23,7 @@ VPR.update_billboard = function () {
 VPR.init_billboard = function () {
     var my_interval = window.setInterval(function () {
         VPR.update_billboard();
-    }, 5000);
+    }, 5 * 60 * 1000);
 }
 
 $(document).ready(function () {
