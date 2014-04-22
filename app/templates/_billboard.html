@@ -1,5 +1,5 @@
-{% if billboard %}
-<div id="billboard">
+<div id="billboard" data-published="{{ spreadsheet_timestamp }}">
+    {% if billboard %}
     <h2>On Air Now</h2>
     <div class="stories">
         <div id="top_story" class="clearfix">
@@ -30,5 +30,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 </div>
-{% endif %}
