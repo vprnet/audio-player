@@ -1,3 +1,8 @@
+/**
+ * @depend modernizr.js
+ * @depend swfobject.js
+ */
+
 if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
     document.getElementById('recommended_format').innerHTML = 'AAC+';
 } else if (typeof swfobject !== 'undefined' && swfobject.hasFlashPlayerVersion("1")) {
@@ -18,7 +23,7 @@ VPR.update_billboard = function () {
 VPR.init_billboard = function () {
     var my_interval = window.setInterval(function () {
         VPR.update_billboard();
-    }, 5 * 60 * 1000);
+    }, 5000);
 }
 
 $(document).ready(function () {
