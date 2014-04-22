@@ -215,5 +215,3 @@ def replay_schedule():
     on_next = {'title': index_list[-1][0].text,
         'artist': index_list[-1][1].text}
     return on_now, on_next
-
-replay_schedule()

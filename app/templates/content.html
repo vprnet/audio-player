@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="container">
+    {% if callout %}
     <div class="row">
         <div class="col-xs-12">
-            {% if callout %}
                 {% include "_callout.html" %}
-            {% endif %}
         </div>
     </div>
+    {% endif %}
     <div class="row">
         <div class="col-sm-6">
             {% include "_player.html" %}

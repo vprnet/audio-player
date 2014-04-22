@@ -2,8 +2,10 @@
     <h2>More Info</h2>
     <p class="question">Check out the <a href="http://www.vpr.net/music/vpr_classical_playlist/index.php" target="_blank">Classical Playlist Calendar</a></p>
     <p class="question">On the {{ stream_name }} stream:</p>
+    {% if on_now %}
     <p class="program"><span class="playing">On Now: </span>{{ on_now.artist }} - {{ on_now.title }}</p>
     <p class="program"><span class="playing">Up Next: </span>{{ on_next.artist }} - {{ on_next.title }}</p>
+    {% endif %}
     <p id="full_schedule"><a href="http://digital.vpr.net/post/my-place-stream-frequently-asked-questions">Full schedule for the {{ stream_name }} stream</a></p>
     <p class="question">Wondering <a href="http://digital.vpr.net/online-streams#stream-options" target="_blank">what MP3, AAC, and Flash are</a> or <a href="http://digital.vpr.net/online-streams#bit-rates">what 64k means?</a></p>
 </div>
