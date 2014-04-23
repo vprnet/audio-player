@@ -46,7 +46,7 @@ def get_callout(sheet_key):
 
 def get_billboard(sheet_key):
     billboard = get_google_sheet(sheet_key, sheet_id='od5')
-    if len(billboard):
+    if len(billboard) and billboard[0]['storyid']:
         story_id = billboard[0]['storyid']
         story = api_feed([story_id], thumbnail=True, sidebar=True)[0]
         title = billboard[0].get('title', False)
