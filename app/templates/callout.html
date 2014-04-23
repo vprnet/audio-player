@@ -1,0 +1,5 @@
+<div id="callout" data-length="0">
+{% if callout %}
+    {{ callout|safe|replace('href', 'target=_blank href') }}
+{% endif %}
+</div>

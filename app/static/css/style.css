@@ -5823,11 +5823,11 @@ body {
     border-color: #c3c5c6; }
     #callout a:hover {
       border-color: #a9abad; }
-  @media (min-width: 768px) {
-    #callout {
-      margin-bottom: 20px; } }
   #callout #callout_message {
     background: blue; }
+  @media (min-width: 768px) {
+    #callout p {
+      margin-bottom: 20px; } }
 
 div#player {
   width: 100%; }

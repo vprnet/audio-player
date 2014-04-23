@@ -6,7 +6,10 @@ from query import get_callout, get_billboard, replay_schedule
 
 @app.route('/')
 def index():
-    sheet_id = 'tzE2PsqJoWRpENlMr-ZlS8A'
+    # real sheet ID
+    #sheet_id = 'tzE2PsqJoWRpENlMr-ZlS8A'
+    # copy sheet ID
+    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
     page_url = BASE_URL + request.path
     page_title = 'Audio Player'
     callout = get_callout(sheet_id)
@@ -36,7 +39,24 @@ def index():
 
 @app.route('/billboard')
 def billboard():
-    sheet_id = 'tzE2PsqJoWRpENlMr-ZlS8A'
+    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
     billboard = get_billboard(sheet_id)
 
-    return render_template('_billboard.html', billboard=billboard)
+    return render_template('billboard.html', billboard=billboard)
+
+
+@app.route('/callout')
+def callout():
+    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
+    callout = get_callout(sheet_id)
+
+    return render_template('callout.html', callout=callout)
+
+
+@app.route('/replay-schedule')
+def schedule():
+    on_now, up_next = replay_schedule()
+
+    return render_template('replay-schedule.html',
+        on_now=on_now,
+        up_next=up_next)

@@ -14,11 +14,13 @@ body {
             border-color: lighten($gray, 20%);
         }
     }
-    @media (min-width: $tablet) {
-        margin-bottom: 20px;
-    }
     #callout_message {
         background: blue;
+    }
+    p {
+        @media (min-width: $tablet) {
+            margin-bottom: 20px;
+        }
     }
 }
 
