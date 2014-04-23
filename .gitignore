@@ -6,7 +6,8 @@ settings.py
 config.py
 venv
 trash
-app/static/img/thumbnails
+app/static/img/thumbnails/*
+.sass-cache
 
 # C extensions
 *.so
