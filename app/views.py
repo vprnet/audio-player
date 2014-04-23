@@ -32,11 +32,3 @@ def index():
         on_now=on_now,
         on_next=on_next,
         page_url=page_url)
-
-
-@app.route('/billboard')
-def billboard():
-    sheet_id = 'tzE2PsqJoWRpENlMr-ZlS8A'
-    billboard = get_billboard(sheet_id)
-
-    return render_template('_billboard.html', billboard=billboard)
