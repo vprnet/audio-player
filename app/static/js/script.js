@@ -1,10 +1,10 @@
-/**
- * @depend modernizr.js
- * @depend swfobject.js
- */
+//@codekit-prepend modernizr.js
+//@codekit-prepend swfobject.js
+
 
 var VPR = VPR || {};
 
+/*
 VPR.update_billboard = function () {
     $.get('/billboard', function (data) {
         var billboard = $('#billboard'),
@@ -19,6 +19,7 @@ VPR.init_billboard = function () {
         VPR.update_billboard();
     }, 5 * 60 * 1000);
 };
+*/
 
 VPR.init_audio_support = function () {
     var label = $('#recommended_format'),
@@ -33,6 +34,6 @@ VPR.init_audio_support = function () {
 };
 
 $(document).ready(function () {
-    VPR.init_billboard();
+   // VPR.init_billboard();
     VPR.init_audio_support();
 });

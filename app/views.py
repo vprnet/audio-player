@@ -1,7 +1,7 @@
 from index import app
 from flask import render_template, request
 from config import BASE_URL
-from query import get_callout, get_billboard
+from query import get_callout, get_billboard, replay_schedule
 
 
 @app.route('/')
@@ -11,7 +11,7 @@ def index():
     page_title = 'Audio Player'
     callout = get_callout(sheet_id)
     billboard = get_billboard(sheet_id)
-    on_now, on_next = False, False
+    on_now, on_next = replay_schedule()
     stream_name = "My Place"
 
     social = {
