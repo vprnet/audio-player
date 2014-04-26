@@ -4,7 +4,7 @@
 
 var VPR = VPR || {};
 
-VPR.update_interval = 10 * 60 * 1000;
+VPR.update_interval = 10 * 1000;
 
 VPR.update_billboard = function () {
     $.get('/billboard', function (data) {
@@ -34,6 +34,18 @@ VPR.update_callout = function () {
     });
 };
 
+VPR.repositioned = false;
+
+VPR.move_more_info = function() {
+    if (Modernizr.mq('(max-width: 768px)')) {
+        $('#more_info').insertAfter('#underwriter').hide().fadeIn();
+        VPR.repositioned = true;
+    } else if (VPR.repositioned && Modernizr.mq('(min-width: 769px)')) {
+        $('#more_info').insertAfter('#player').hide().fadeIn();
+        VPR.repositioned = false;
+    }
+};
+
 VPR.update_schedule = function() {
     $.get('/replay-schedule', function (data) {
         var on_now = $('#on_now'),
@@ -51,10 +63,12 @@ VPR.init_updates = function () {
     VPR.update_billboard();
     VPR.update_callout();
     VPR.update_schedule();
+    VPR.move_more_info();
 
     var my_interval = window.setInterval(function () {
         VPR.update_billboard();
         VPR.update_callout();
+        VPR.move_more_info();
         if (m < (VPR.update_interval / (1000 * 60))) {
             VPR.update_schedule();
         }
