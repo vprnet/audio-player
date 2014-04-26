@@ -21,7 +21,7 @@ var swfobject=function(){var D="undefined",r="object",S="Shockwave Flash",W="Sho
 
 var VPR = VPR || {};
 
-VPR.update_interval = 10 * 1000;
+VPR.update_interval = 10 * 60 * 1000;
 
 VPR.update_billboard = function () {
     $.get('/billboard', function (data) {
