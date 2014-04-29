@@ -11,9 +11,6 @@ SHEET_ID = 'tzE2PsqJoWRpENlMr-ZlS8A'
 def index():
     page_url = BASE_URL + request.path
     page_title = 'Audio Player'
-    callout = get_callout(SHEET_ID)
-    billboard = get_billboard(SHEET_ID)
-    on_now, on_next = replay_schedule()
     stream_name = "My Place"
 
     social = {
@@ -28,11 +25,7 @@ def index():
     return render_template('content.html',
         page_title=page_title,
         social=social,
-        callout=callout,
-        billboard=billboard,
         stream_name=stream_name,
-        on_now=on_now,
-        on_next=on_next,
         page_url=page_url)
 
 
