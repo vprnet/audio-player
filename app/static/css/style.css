@@ -5855,7 +5855,10 @@ div#player {
     font-size: 12px;
     color: #75787b; }
     div#player p#player_feedback a {
-      color: #75787b; }
+      color: #75787b;
+      border-color: #d0d1d2; }
+      div#player p#player_feedback a:hover {
+        border-color: #a9abad; }
   div#player #recommended_format {
     font-weight: 600; }
   div#player div.sgplayer-mobile {

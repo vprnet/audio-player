@@ -53,6 +53,10 @@ div#player {
         color: $gray;
         a {
             color: $gray;
+            border-color: lighten($gray, 35%);
+            &:hover {
+                border-color: lighten($gray, 20%);
+            }
         }
     }
     #recommended_format {
