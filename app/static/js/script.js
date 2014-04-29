@@ -47,12 +47,31 @@ VPR.move_more_info = function() {
 };
 
 VPR.update_schedule = function() {
-    $.get('/apps/audio-player/replay-schedule', function (data) {
-        var on_now = $('#on_now'),
-            up_next = $('#up_next');
+    $.ajax({
+        type: "GET",
+        url: "http://www.vpr.net/xml/vpr-mix-stream/vprmix.xml",
+        datatype: "xml",
+        success: function(xml) {
+            var xml_doc = $(xml),
+                on_now_xml = xml_doc.find('PLAY[INDEX=0]'),
+                up_next_xml = xml_doc.find('PLAY[INDEX=6]'),
+                on_now_obj = {
+                    'artist': on_now_xml.children('ARTIST').text(),
+                    'title': on_now_xml.children('TITLE').text()
+                },
+                up_next_obj = {
+                    'artist': up_next_xml.children('ARTIST').text(),
+                    'title': up_next_xml.children('TITLE').text()
+                },
+                on_now = $('<span id="on_now" />'),
+                up_next = $('<span id="up_next" />');
 
-            on_now.replaceWith($(data).first().hide().fadeIn());
-            up_next.replaceWith($(data).last().hide().fadeIn());
+                on_now.text(on_now_obj.artist + ' - ' + on_now_obj.title);
+                up_next.text(up_next_obj.artist + ' - ' + up_next_obj.title);
+
+            $('#on_now').replaceWith(on_now.hide().fadeIn());
+            $('#up_next').replaceWith(up_next.hide().fadeIn());
+        }
     });
 };
 
