@@ -7,7 +7,7 @@ var VPR = VPR || {};
 VPR.update_interval = 10 * 60 * 1000;
 
 VPR.update_billboard = function () {
-    $.get('/billboard', function (data) {
+    $.get('/apps/audio-player/billboard', function (data) {
         var billboard = $('#billboard'),
             billboard_length = billboard.attr('data-length'),
             data_length = data.length.toString(),
@@ -21,7 +21,7 @@ VPR.update_billboard = function () {
 };
 
 VPR.update_callout = function () {
-    $.get('/callout', function (data) {
+    $.get('/apps/audio-player/callout', function (data) {
         var callout = $('#callout'),
             callout_length = callout.attr('data-length'),
             data_length = data.length.toString(),
@@ -47,7 +47,7 @@ VPR.move_more_info = function() {
 };
 
 VPR.update_schedule = function() {
-    $.get('/replay-schedule', function (data) {
+    $.get('/apps/audio-player/replay-schedule', function (data) {
         var on_now = $('#on_now'),
             up_next = $('#up_next');
 
