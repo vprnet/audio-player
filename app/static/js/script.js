@@ -65,13 +65,16 @@ VPR.init_updates = function () {
     VPR.update_schedule();
     VPR.move_more_info();
 
+    var replay_interval = window.setInterval(function () {
+        if (m < 3) {
+            VPR.update_schedule();
+        }
+    }, 3 * 60 * 1000);
+
     var my_interval = window.setInterval(function () {
         VPR.update_billboard();
         VPR.update_callout();
         VPR.move_more_info();
-        if (m < (VPR.update_interval / (1000 * 60))) {
-            VPR.update_schedule();
-        }
     }, VPR.update_interval);
 };
 

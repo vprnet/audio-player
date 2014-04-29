@@ -3,17 +3,16 @@ from flask import render_template, request
 from config import BASE_URL
 from query import get_callout, get_billboard, replay_schedule
 
+SHEET_ID = 'tzE2PsqJoWRpENlMr-ZlS8A'
+#SHEET_ID = 'tIk5itVcfOHUmakkmpjCcxw'  # Demo sheet
+
 
 @app.route('/')
 def index():
-    # real sheet ID
-    #sheet_id = 'tzE2PsqJoWRpENlMr-ZlS8A'
-    # copy sheet ID
-    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
     page_url = BASE_URL + request.path
     page_title = 'Audio Player'
-    callout = get_callout(sheet_id)
-    billboard = get_billboard(sheet_id)
+    callout = get_callout(SHEET_ID)
+    billboard = get_billboard(SHEET_ID)
     on_now, on_next = replay_schedule()
     stream_name = "My Place"
 
@@ -39,16 +38,14 @@ def index():
 
 @app.route('/billboard')
 def billboard():
-    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
-    billboard = get_billboard(sheet_id)
+    billboard = get_billboard(SHEET_ID)
 
     return render_template('billboard.html', billboard=billboard)
 
 
 @app.route('/callout')
 def callout():
-    sheet_id = 'tIk5itVcfOHUmakkmpjCcxw'
-    callout = get_callout(sheet_id)
+    callout = get_callout(SHEET_ID)
 
     return render_template('callout.html', callout=callout)
 
