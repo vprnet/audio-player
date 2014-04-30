@@ -5872,7 +5872,6 @@ div#player {
       margin: 0 auto; }
 
 #billboard {
-  margin-bottom: 15px;
   background: white; }
   #billboard h2 {
     margin-top: 5px;
@@ -5929,6 +5928,8 @@ div#player {
     @media (max-width: 768px) {
       #billboard #billboard_share {
         max-width: 260px; } }
+  #billboard #bb_margin {
+    margin-bottom: 15px; }
   #billboard #top_story img {
     padding-right: 10px; }
     @media (max-width: 500px) {
