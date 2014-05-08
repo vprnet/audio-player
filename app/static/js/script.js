@@ -34,18 +34,6 @@ VPR.update_callout = function () {
     });
 };
 
-VPR.repositioned = false;
-
-VPR.move_more_info = function() {
-    if (Modernizr.mq('(max-width: 768px)')) {
-        $('#more_info').insertAfter('#underwriter').hide().fadeIn();
-        VPR.repositioned = true;
-    } else if (VPR.repositioned && Modernizr.mq('(min-width: 769px)')) {
-        $('#more_info').insertAfter('#player').hide().fadeIn();
-        VPR.repositioned = false;
-    }
-};
-
 VPR.update_schedule = function() {
     $.ajax({
         type: "GET",
@@ -75,6 +63,18 @@ VPR.update_schedule = function() {
     });
 };
 
+VPR.small_window = false;
+
+VPR.move_more_info = function() {
+    if (!VPR.small_window && Modernizr.mq('(max-width: 767px)')) {
+        $('#more_info').insertAfter('#underwriter').hide().fadeIn();
+        VPR.small_window = true;
+    } else if (VPR.small_window && Modernizr.mq('(min-width: 768px)')) {
+        $('#more_info').insertAfter('#player').hide().fadeIn();
+        VPR.small_window = false;
+    }
+};
+
 VPR.init_updates = function () {
     var d = new Date(),
         m = d.getMinutes();
@@ -93,7 +93,6 @@ VPR.init_updates = function () {
     var my_interval = window.setInterval(function () {
         VPR.update_billboard();
         VPR.update_callout();
-        VPR.move_more_info();
     }, VPR.update_interval);
 };
 
@@ -108,6 +107,36 @@ VPR.init_audio_support = function () {
         label.text('Flash');
     }
 };
+
+(function($,sr){
+
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          }
+
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  };
+	// smartresize
+	jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+
+$(window).smartresize(VPR.move_more_info);
 
 $(document).ready(function () {
     VPR.init_updates();
