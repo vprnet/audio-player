@@ -108,6 +108,13 @@ VPR.init_audio_support = function () {
     }
 };
 
+$('a#old_player').click(function(event) {
+    event.preventDefault();
+    var href = $(this).attr("href");
+    window.open(href, "audioPlayer", "resizable = 0, status = 0, toolbar = 0, location = 0, menubar = 0, directories = 0, scrollbars = 1, width = 500, height = 300");
+    return false;
+});
+
 (function($,sr){
 
   // debouncing function from John Hann
