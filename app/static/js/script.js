@@ -42,7 +42,7 @@ VPR.update_schedule = function() {
         success: function(xml) {
             var xml_doc = $(xml),
                 on_now_xml = xml_doc.find('PLAY[INDEX=0]'),
-                up_next_xml = xml_doc.find('PLAY[INDEX=6]'),
+                up_next_xml = xml_doc.find('PLAY[INDEX=4]'),
                 on_now_obj = {
                     'artist': on_now_xml.children('ARTIST').text(),
                     'title': on_now_xml.children('TITLE').text()
