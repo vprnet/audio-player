@@ -3,10 +3,14 @@
     <h2>On Air Now</h2>
     <div id="bb_margin" class="stories">
         <div id="top_story" class="clearfix">
+        {% if billboard.image %}
             <img class="hidden-xs pull-left" src="{{ url_for('static', filename=billboard.image) }}">
+        {% endif %}
 
             <h3><a href="{{ billboard.link }}" alt="{{ billboard.title }}" target="_blank">{{ billboard.title }}</a></h3>
+        {% if billboard.image %}
             <img class="visible-xs pull-left" src="{{ url_for('static', filename=billboard.image) }}">
+        {% endif %}
             {% for par in billboard.text %}
                 <p>{{ par }}</p>
             {% endfor %}
