@@ -5813,6 +5813,8 @@ html.no-svg #facebook_icon {
 
 body {
   background: #eaebeb; }
+  body .container {
+    max-width: 750px; }
 
 #callout {
   font-size: 14px;
@@ -5844,8 +5846,7 @@ div#player {
     text-align: center;
     color: #75787b;
     margin: 0;
-    padding: 0 10px;
-    margin-top: -30px; }
+    padding: 0 10px; }
     @media (max-width: 500px) {
       div#player p#recommended {
         margin-top: -15px; } }
@@ -5862,7 +5863,8 @@ div#player {
   div#player #recommended_format {
     font-weight: 600; }
   div#player div.sgplayer-mobile {
-    width: 100%; }
+    width: 100%;
+    height: 115px; }
     @media (max-width: 350px) {
       div#player div.sgplayer-mobile {
         height: 200px;
@@ -5969,17 +5971,10 @@ div#player {
     text-align: center; }
 
 #more_info {
+  border-top: 5px solid #307fe2;
   background: white;
   padding-bottom: 10px;
   margin-bottom: 25px; }
-  #more_info h2 {
-    margin-top: 0;
-    background: #307fe2;
-    color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    padding: 5px; }
   #more_info p {
     padding: 0 10px;
     font-size: 12px;
