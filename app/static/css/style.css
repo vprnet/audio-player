@@ -5861,8 +5861,11 @@ div#player {
     font-weight: 600; }
   div#player div.sgplayer-mobile {
     width: 100%;
-    height: 375px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    height: 385px; }
+    @media (min-width: 500px) {
+      div#player div.sgplayer-mobile {
+        min-width: 375px; } }
     @media (max-width: 500px) {
       div#player div.sgplayer-mobile {
         height: 460px; } }
@@ -6023,3 +6026,7 @@ p.prior_player {
     p.prior_player {
       font-size: 12px;
       text-align: left; } }
+
+@media (max-width: 330px) {
+  .player_col {
+    padding: 0 5px; } }
