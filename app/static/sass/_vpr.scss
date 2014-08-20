@@ -131,9 +131,10 @@ footer {
     }
     margin-top: 7px;
     button.btn-primary {
-        background: $blue;
+        background: $orange;
+        border-color: desaturate(darken($orange, 10%), 30%);
         &:hover {
-            background: darken($blue, 10%);
+            background: darken($orange, 10%);
         }
         padding: 4px 12px;
     }

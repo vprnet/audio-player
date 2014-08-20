@@ -3573,10 +3573,11 @@ footer {
     #donate_btn {
       margin-right: 10px; } }
   #donate_btn button.btn-primary {
-    background: #307fe2;
+    background: #ed8b00;
+    border-color: #9e681c;
     padding: 4px 12px; }
     #donate_btn button.btn-primary:hover {
-      background: #1b66c4; }
+      background: #ba6d00; }
 
 @media (max-width: 768px) {
   footer {
