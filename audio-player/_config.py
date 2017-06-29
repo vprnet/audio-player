@@ -13,9 +13,6 @@ AWS_DIRECTORY = 'apps/audio-player'
 
 NPR_API_KEY = ''
 
-GOOGLE_SPREADSHEET = {'USER': '',
-    'PASSWORD': '',
-    'SOURCE': ''}
 
 # Cache Settings (units in seconds)
 STATIC_EXPIRES = 60 * 24 * 3600

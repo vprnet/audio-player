@@ -1,75 +1,39 @@
 #!/usr/bin/python
 import json
 import requests
-import Image
-import ImageOps
+import gspread
+from PIL import Image
+from PIL import ImageOps
 import urllib
 import os
 import markdown
 import xml.etree.ElementTree as ET
-from google_spreadsheet.api import SpreadsheetAPI
 from datetime import datetime
 from cStringIO import StringIO
-from config import NPR_API_KEY, ABSOLUTE_PATH, GOOGLE_SPREADSHEET
+from config import NPR_API_KEY, ABSOLUTE_PATH
+from oauth2client.client import SignedJwtAssertionCredentials
 
 
-def list_sheets():
-    """The API sheet_key is not the same as the key in the URL. This function
-    just prints out all sheet keys"""
-    api = SpreadsheetAPI(GOOGLE_SPREADSHEET['USER'],
-        GOOGLE_SPREADSHEET['PASSWORD'],
-        GOOGLE_SPREADSHEET['SOURCE'])
-    spreadsheets = api.list_spreadsheets()
-    for sheet in spreadsheets:
-        print sheet
 
+def get_google_sheet():
+    json_key = json.load(open('homepage.json'))
+    scope = ['https://spreadsheets.google.com/feeds']
+    credentials = SignedJwtAssertionCredentials(json_key['client_email'], json_key['private_key'], scope)
+    authorization = gspread.authorize(credentials)
+    spreadsheet = authorization.open('VPR Homepage App')
+    worksheet = spreadsheet.get_worksheet(1)
 
-def get_google_sheet(sheet_key=False, sheet_id='od6'):
-    """Uses python_google_spreadsheet API to interact with sheet"""
-    api = SpreadsheetAPI(GOOGLE_SPREADSHEET['USER'],
-        GOOGLE_SPREADSHEET['PASSWORD'],
-        GOOGLE_SPREADSHEET['SOURCE'])
-    sheet = api.get_worksheet(sheet_key, sheet_id)
-    sheet_object = sheet.get_rows()
-    return sheet_object
+    return worksheet.get_all_records()
 
 
 def get_callout(sheet_key):
-    callout = get_google_sheet(sheet_key, sheet_id='od4')
-    md = callout[0]['text']
+    callout = get_google_sheet()
+    md = callout[0]['Text']
     if md:
         html = markdown.markdown(md)
     else:
         html = False
     return html
-
-
-def get_billboard(sheet_key):
-    billboard = get_google_sheet(sheet_key, sheet_id='od5')
-    if len(billboard) and billboard[0]['storyid']:
-        story_id = billboard[0]['storyid']
-        story = api_feed([story_id], thumbnail=True, sidebar=True)[0]
-        title = billboard[0].get('title', False)
-        text = billboard[0].get('text', False)
-        twitter = billboard[0].get('twitter', False)
-        phone = billboard[0].get('phone', False)
-        facebook = billboard[0].get('facebook', False)
-        email = billboard[0].get('email', False)
-        if title:
-            story['title'] = title
-        if text:
-            story['text'] = [text]
-        if twitter:
-            story['twitter'] = twitter
-        if email:
-            story['email'] = twitter
-        if phone:
-            story['phone'] = phone
-        if facebook:
-            story['facebook'] = facebook
-    else:
-        story = False
-    return story
 
 
 def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
@@ -82,13 +46,6 @@ def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
         link = story['link'][0]['$text']
         date = convert_date(story['storyDate']['$text'])
         title = story['title']['$text'].strip()
-
-        #byline = {}
-        #try:
-        #    byline['name'] = story['byline'][0]['name']['$text']
-        #    byline['url'] = story['byline'][0]['link'][0]['$text']
-        #except KeyError:
-        #    byline = False
 
         try:  # if there's an image, determine orientation and define boundary
             story_image = story['image'][0]['crop'][0]
@@ -144,7 +101,6 @@ def api_feed(tag, numResults=1, char_limit=140, thumbnail=False, sidebar=False):
             'link': link,
             'image': image,
             'text': text,
-            #'byline': byline,
             'audio': audio,
             'landscape': landscape
         })

@@ -1,12 +1,10 @@
-#VPR Audio Player
+# VPR Audio Player
 This project contains the code not for the actual audio player, but for [the page](http://www.vpr.net/apps/audio-player) which that player is embedded.
 
 This project uses code from the [VPR App Template](http://github.com/vprnet/app-template).
 
-## Author
-[Matt Parrilla](http://twitter.com/mattparrilla)
 
-##Copyright and License
+## Copyright and License
 
 Copyright 2014 Vermont Public Radio
 
